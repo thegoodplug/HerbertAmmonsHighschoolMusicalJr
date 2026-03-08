@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HSM Jr. – Ammons Drama Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cinzel:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #b8001f;
+    --darkred: #7a0010;
+    --gold: #f5c518;
+    --darkgold: #c9960c;
+    --cream: #fdf6e3;
+    --navy: #0a1628;
+    --maroon: #3d0008;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a0005;
+    font-family: 'Lato', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 16px 40px;
+  }
+
+  /* ── BOOKLET WRAPPER ── */
+  .booklet {
+    width: 100%;
+    max-width: 560px;
+    background: var(--cream);
+    border-radius: 4px;
+    box-shadow: 0 0 0 4px var(--darkgold), 0 0 0 8px var(--red), 0 8px 60px rgba(0,0,0,0.8);
+    overflow: hidden;
+    min-height: 600px;
+    position: relative;
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; flex-direction: column; }
+  .page.active { display: flex; }
+
+  /* ── COVER PAGE ── */
+  #page-0 {
+    background: #0d0005;
+    align-items: center;
+    padding: 0;
+  }
+  .cover-poster {
+    width: 100%;
+    display: block;
+  }
+  .cover-school-bar {
+    width: 100%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 14px 20px;
+    border-top: 3px solid var(--gold);
+  }
+  .cover-school-bar img {
+    height: 54px;
+    width: auto;
+  }
+  .cover-school-text {
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .cover-school-text strong {
+    display: block;
+    font-size: 0.92rem;
+    color: #fff;
+  }
+
+  /* ── INNER PAGES ── */
+  .page-header {
+    background: linear-gradient(135deg, var(--darkred) 0%, var(--red) 50%, var(--maroon) 100%);
+    padding: 22px 24px 18px;
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★';
+    position: absolute;
+    top: 6px; left: 0; right: 0;
+    font-size: 0.55rem;
+    color: rgba(245,197,24,0.35);
+    letter-spacing: 4px;
+    text-align: center;
+  }
+  .page-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.35rem;
+    color: var(--gold);
+    letter-spacing: 0.12em;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    margin-top: 6px;
+  }
+  .page-header .subtitle {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .page-body {
+    padding: 24px 24px 16px;
+    flex: 1;
+  }
+
+  /* ── DIRECTOR'S NOTE ── */
+  .directors-note {
+    background: white;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    box-shadow: 2px 2px 12px rgba(0,0,0,0.07);
+  }
+  .directors-note .quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 0.5;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .directors-note p {
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: #333;
+  }
+  .directors-note .signature {
+    margin-top: 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--darkred);
+    font-style: italic;
+  }
+  .directors-note .sig-title {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.72rem;
+    color: #888;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── CAST LIST ── */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--darkred);
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 5px;
+    margin: 18px 0 12px;
+  }
+  .cast-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .cast-table tr {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .cast-table tr:last-child { border-bottom: none; }
+  .cast-table td {
+    padding: 6px 4px;
+    font-size: 0.85rem;
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .cast-table .role {
+    font-weight: 700;
+    color: var(--darkred);
+    width: 46%;
+    padding-right: 8px;
+  }
+  .cast-table .actor {
+    color: #222;
+  }
+  .cast-table .understudy {
+    font-size: 0.76rem;
+    color: #777;
+    font-style: italic;
+  }
+
+  /* ensemble grid */
+  .ensemble-group { margin-bottom: 14px; }
+  .ensemble-group .group-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--darkred);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    border-left: 3px solid var(--gold);
+    padding-left: 8px;
+  }
+  .name-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px 12px;
+  }
+  .name-grid span {
+    font-size: 0.82rem;
+    color: #333;
+    padding: 3px 0;
+    border-bottom: 1px dotted rgba(0,0,0,0.1);
+    line-height: 1.3;
+  }
+
+  /* ── SONGS ── */
+  .song-list { list-style: none; }
+  .song-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  .song-list li:last-child { border-bottom: none; }
+  .song-num {
+    background: var(--red);
+    color: white;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .song-title {
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .song-title em {
+    font-style: normal;
+    color: var(--darkred);
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+  }
+  .song-cast {
+    font-size: 0.76rem;
+    color: #666;
+    margin-top: 1px;
+    display: block;
+  }
+
+  /* act divider */
+  .act-divider {
+    text-align: center;
+    margin: 14px 0 8px;
+    position: relative;
+  }
+  .act-divider::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+  }
+  .act-divider span {
+    background: var(--cream);
+    padding: 0 12px;
+    position: relative;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--darkred);
+    text-transform: uppercase;
+  }
+
+  /* ── CREW ── */
+  .crew-block { margin-bottom: 10px; }
+  .crew-block .crew-role {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--darkred);
+  }
+  .crew-block .crew-name {
+    font-size: 0.88rem;
+    color: #222;
+    margin-top: 1px;
+  }
+
+  /* ── CLOSING PAGE ── */
+  #page-closing {
+    background: linear-gradient(180deg, #0d0005 0%, #1a0005 100%);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 28px;
+    min-height: 400px;
+  }
+  .closing-logo {
+    width: 110px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+  .closing-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    color: var(--gold);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .closing-sub {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .closing-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto 28px;
+  }
+  .closing-thanks {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.9;
+    max-width: 360px;
+  }
+  .closing-stars {
+    margin-top: 28px;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 8px;
+  }
+
+  /* ── NAVIGATION ── */
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: var(--navy);
+    border-top: 3px solid var(--gold);
+  }
+  .nav-btn {
+    background: var(--red);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 9px 20px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  }
+  .nav-btn:hover { background: var(--darkred); transform: translateY(-1px); }
+  .nav-btn:active { transform: translateY(0); }
+  .nav-btn:disabled {
+    background: #555;
+    cursor: default;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.5;
+  }
+  .page-indicator {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .page-indicator .show-title {
+    font-size: 0.6rem;
+    color: rgba(255,255,255,0.45);
+    display: block;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="booklet" id="booklet">
+
+  <!-- ══ PAGE 0: COVER ══ -->
+  <div class="page active" id="page-0">
+    <img class="cover-poster" src="cover.png" alt="High School Musical Jr. Poster" onerror="this.style.display='none'; document.getElementById('cover-fallback').style.display='flex'">
+    <div id="cover-fallback" style="display:none; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(160deg,#7a0010,#b8001f,#3d0008); min-height:420px; padding:40px 24px; text-align:center;">
+      <div style="font-family:'Cinzel',serif; font-size:0.8rem; letter-spacing:0.25em; color:rgba(255,255,255,0.7); text-transform:uppercase; margin-bottom:16px;">Ammons Drama Presents</div>
+      <div style="font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:900; color:var(--gold); line-height:1; text-shadow:0 0 30px rgba(245,197,24,0.5);">HIGH<br>SCHOOL<br>MUSICAL</div>
+      <div style="font-family:'Playfair Display',serif; font-size:1.6rem; color:white; margin-top:4px;">Jr.</div>
+      <div style="margin-top:20px; font-family:'Lato',sans-serif; font-size:0.85rem; color:rgba(255,255,255,0.85); line-height:2;">
+        March 10th &amp; 11th · 7:00 PM<br>
+        South Dade High School
+      </div>
+    </div>
+    <div class="cover-school-bar">
+      <img src="logo.jpg" alt="Herbert A. Ammons Middle School Logo" onerror="this.style.display='none'">
+      <div class="cover-school-text">
+        <strong>Herbert A. Ammons Middle</strong>
+        Ammons Drama Department<br>
+        An IB World School
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 1: DIRECTOR'S NOTE ══ -->
+  <div class="page" id="page-1">
+    <div class="page-header">
+      <div class="subtitle">From the Director</div>
+      <h2>A Welcome Message</h2>
+    </div>
+    <div class="page-body">
+      <div class="directors-note">
+        <span class="quote-mark">"</span>
+        <p>Welcome to <em style="font-style:italic; color:var(--darkred);">High School Musical Jr.</em> — a show about breaking boundaries, finding your voice, and discovering that you're more than just one thing.</p>
+        <br>
+        <p>These incredible students have poured their hearts into every rehearsal, every song, and every step. Tonight, they share that passion with you. We hope this performance reminds you — and them — that when we work together, when we lift each other up, we truly are <em style="font-style:italic; color:var(--darkred);">all in this together.</em></p>
+        <br>
+        <p>Thank you for being here to celebrate them. Sit back, enjoy the show, and let yourself be swept away by the magic of live theatre.</p>
+        <div class="signature">Ms. Faride Jamid</div>
+        <div class="sig-title">Director · Ammons Drama</div>
+      </div>
+
+      <div class="section-label">Show Information</div>
+      <div style="font-size:0.84rem; line-height:2; color:#333;">
+        <strong style="color:var(--darkred);">Performances:</strong> March 10 &amp; 11, 2025 · 7:00 PM<br>
+        <strong style="color:var(--darkred);">Venue:</strong> South Dade High School<br>
+        <span style="font-size:0.78rem; color:#666;">28401 SW 167th Ave, Homestead, FL 33030</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 2: PRINCIPAL CAST ══ -->
+  <div class="page" id="page-2">
+    <div class="page-header">
+      <div class="subtitle">Meet the</div>
+      <h2>Principal Cast</h2>
+    </div>
+    <div class="page-body">
+      <table class="cast-table">
+        <tr>
+          <td class="role">Troy Bolton</td>
+          <td class="actor">Lucas Murgado</td>
+        </tr>
+        <tr>
+          <td class="role">Gabriella Montez</td>
+          <td class="actor">Nyla Hodge<br><span class="understudy">& Melissa Villares-Lopez</span></td>
+        </tr>
+        <tr>
+          <td class="role">Sharpay Evans</td>
+          <td class="actor">Allie Rose Estinvil<br><span class="understudy">Understudy: Maya Mendez</span></td>
+        </tr>
+        <tr>
+          <td class="role">Ryan Evans</td>
+          <td class="actor">Adriano Gutierrez<br><span class="understudy">Status Quo: KK Heimer</span></td>
+        </tr>
+        <tr>
+          <td class="role">Kelsi Nielsen</td>
+          <td class="actor">Sofia Arias<br><span class="understudy">& Karsyn Thompson</span></td>
+        </tr>
+        <tr>
+          <td class="role">Chad Danforth</td>
+          <td class="actor">Genaro Espinales</td>
+        </tr>
+        <tr>
+          <td class="role">Zeke Baylor</td>
+          <td class="actor">Nestor Serret</td>
+        </tr>
+        <tr>
+          <td class="role">Taylor McKessie</td>
+          <td class="actor">Ella Khan<br><span class="understudy">Understudy: Jasmine Ramkhelawan</span></td>
+        </tr>
+        <tr>
+          <td class="role">Martha Cox</td>
+          <td class="actor">Tahera Riviere<br><span class="understudy">& Brianna Swann</span></td>
+        </tr>
+        <tr>
+          <td class="role">Jackie Scott</td>
+          <td class="actor">Mariah Kinlaw</td>
+        </tr>
+        <tr>
+          <td class="role">Ms. Darbus</td>
+          <td class="actor">Emily Espino Vidal</td>
+        </tr>
+        <tr>
+          <td class="role">Coach Bolton</td>
+          <td class="actor">Jake Rodriguez</td>
+        </tr>
+        <tr>
+          <td class="role">Jason</td>
+          <td class="actor">Logan Rincon</td>
+        </tr>
+      </table>
+
+      <div class="section-label">Featured Ensemble</div>
+      <div class="name-grid">
+        <span>Anthony Obregon</span>
+        <span>Lucas Duvivier</span>
+        <span>Rodolfo Pedraza</span>
+        <span>Angela Gomez <em style="font-size:0.7rem;color:#888">(Dance Captain)</em></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 3: ENSEMBLE ══ -->
+  <div class="page" id="page-3">
+    <div class="page-header">
+      <div class="subtitle">The</div>
+      <h2>Ensemble</h2>
+    </div>
+    <div class="page-body">
+
+      <div class="ensemble-group">
+        <div class="group-label">Cheerleaders &amp; Color Guard</div>
+        <div class="name-grid">
+          <span>Aliyah Ariza</span>
+          <span>Sophia Bassett</span>
+          <span>Emma Gonzalez</span>
+          <span>Jasmine Kissoonlal</span>
+          <span>Keira Lopez</span>
+          <span>Alice Machado</span>
+          <span>Emma Mayorga</span>
+          <span>M'Kaylah McCoy</span>
+          <span>Karla Pierre</span>
+          <span>Alanna Rivaldo</span>
+          <span>Kara Williams</span>
+        </div>
+      </div>
+
+      <div class="ensemble-group">
+        <div class="group-label">8th Grade</div>
+        <div class="name-grid">
+          <span>Aleisha Anderson</span>
+          <span>Katherine Chan Garcia</span>
+          <span>Grace Correa</span>
+          <span>Jaycee Groves</span>
+          <span>Arianna Gross</span>
+          <span>Briana Henry</span>
+          <span>Brittany Hull</span>
+          <span>Yoseline Lopez</span>
+          <span>Madeline Pedraza</span>
+          <span>Mia Romero</span>
+        </div>
+      </div>
+
+      <div class="ensemble-group">
+        <div class="group-label">7th Grade</div>
+        <div class="name-grid">
+          <span>Sol Benavidez</span>
+          <span>Julieta Bravo-Sosa</span>
+          <span>Savannah Gomez</span>
+          <span>Alejandra Lopez</span>
+          <span>Nancy Madubuike</span>
+          <span>Juliette Mora</span>
+          <span>Valerie Proenza</span>
+          <span>Sabrina Suarez-Rua</span>
+        </div>
+      </div>
+
+      <div class="ensemble-group">
+        <div class="group-label">6th Grade</div>
+        <div class="name-grid">
+          <span>Alisha Anderson</span>
+          <span>Lyanis Cabreraestevez</span>
+          <span>Amanda Castaneda</span>
+          <span>Ximena Dajui</span>
+          <span>Emily Gonzalez Diaz</span>
+          <span>Lesslie Loureiro</span>
+          <span>Alison Medina</span>
+          <span>Carolina Melian</span>
+          <span>Katalina Morales</span>
+          <span>Madelyn Penton</span>
+          <span>Sarah Peraza</span>
+          <span>Lucia Perdigon</span>
+          <span>Allison Pereza</span>
+          <span>Vivienne Rios Raya</span>
+          <span>Mila Rincon</span>
+          <span>Samantha Rosales</span>
+          <span>Amanda Vazquez Perdomo</span>
+        </div>
+      </div>
+
+      <div class="ensemble-group">
+        <div class="group-label">4th Period Class</div>
+        <div class="name-grid">
+          <span>Jocelyn Cespedes</span>
+          <span>Penelope Levin</span>
+          <span>Leah Leyva</span>
+          <span>Arianna Torres</span>
+          <span>Antonella Torresalvear</span>
+          <span>Anastasia Valles</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ PAGE 4: PRODUCTION TEAM ══ -->
+  <div class="page" id="page-4">
+    <div class="page-header">
+      <div class="subtitle">Behind the Curtain</div>
+      <h2>Production Team</h2>
+    </div>
+    <div class="page-body">
+
+      <div class="section-label">Stage Management</div>
+      <div class="crew-block">
+        <div class="crew-role">Stage Manager</div>
+        <div class="crew-name">Ciara Gibbs</div>
+      </div>
+      <div class="crew-block">
+        <div class="crew-role">Assistant Stage Manager</div>
+        <div class="crew-name">Mariana Rojas</div>
+      </div>
+      <div class="crew-block">
+        <div class="crew-role">Alumni Liaison</div>
+        <div class="crew-name">Luna Barrios</div>
+      </div>
+      <div class="crew-block">
+        <div class="crew-role">Alumni</div>
+        <div class="crew-name">Adriana Martin</div>
+      </div>
+
+      <div class="section-label">Tech Crew</div>
+      <div class="crew-block">
+        <div class="crew-role">Two-Week Tech (4th Period)</div>
+        <div class="crew-name">Chelsea Olivas · Isys Wynn</div>
+      </div>
+      <div class="crew-block">
+        <div class="crew-role">Two-Week Tech (School)</div>
+        <div class="crew-name">Jazmine Diaz</div>
+      </div>
+
+      <div class="section-label">Leadership &amp; Direction</div>
+      <div class="crew-block">
+        <div class="crew-role">Director</div>
+        <div class="crew-name">Ms. Faride Jamid</div>
+      </div>
+      <div class="crew-block">
+        <div class="crew-role">Leadership Staff</div>
+        <div class="crew-name">Wine · Jojo · Rachel · Ricky · Rusty</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 5: MUSICAL NUMBERS ══ -->
+  <div class="page" id="page-5">
+    <div class="page-header">
+      <div class="subtitle">Musical Numbers</div>
+      <h2>Songs of the Show</h2>
+    </div>
+    <div class="page-body">
+      <div class="act-divider"><span>Act One</span></div>
+      <ul class="song-list">
+        <li>
+          <span class="song-num">1</span>
+          <div>
+            <span class="song-title">Wildcat Cheer</span>
+            <span class="song-cast">Company</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">2</span>
+          <div>
+            <span class="song-title"><em>Start of Something New</em></span>
+            <span class="song-cast">Troy, Gabriella, Company</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">3</span>
+          <div>
+            <span class="song-title">Get'Cha Head in the Game</span>
+            <span class="song-cast">Troy, Jocks</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">4</span>
+          <div>
+            <span class="song-title">Auditions (Bop to the Top / What I've Been Looking For)</span>
+            <span class="song-cast">Thespians, Rebels, Ms. Darbus</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">5</span>
+          <div>
+            <span class="song-title"><em>What I've Been Looking For</em></span>
+            <span class="song-cast">Sharpay, Ryan</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">6</span>
+          <div>
+            <span class="song-title">What I've Been Looking For (Reprise)</span>
+            <span class="song-cast">Troy, Gabriella</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">7</span>
+          <div>
+            <span class="song-title">Stick to the Status Quo</span>
+            <span class="song-cast">Company</span>
+          </div>
+        </li>
+      </ul>
+
+      <div class="act-divider"><span>Act Two</span></div>
+      <ul class="song-list">
+        <li>
+          <span class="song-num">8</span>
+          <div>
+            <span class="song-title">Counting on You</span>
+            <span class="song-cast">Jocks, Brainiacs</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">9</span>
+          <div>
+            <span class="song-title">We're All in This Together</span>
+            <span class="song-cast">Chad, Taylor, Kelsi, Jocks, Brainiacs</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">10</span>
+          <div>
+            <span class="song-title">Bop to the Top</span>
+            <span class="song-cast">Sharpay, Ryan, Brainiacs, Jocks</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">11</span>
+          <div>
+            <span class="song-title"><em>Breaking Free</em></span>
+            <span class="song-cast">Troy, Gabriella, Company</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">12</span>
+          <div>
+            <span class="song-title">We're All in This Together (Reprise)</span>
+            <span class="song-cast">Company</span>
+          </div>
+        </li>
+        <li>
+          <span class="song-num">13</span>
+          <div>
+            <span class="song-title">High School Musical Megamix</span>
+            <span class="song-cast">Company</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ PAGE 6: CLOSING ══ -->
+  <div class="page" id="page-closing">
+    <img class="closing-logo" src="logo.jpg" alt="Ammons Logo" onerror="this.style.display:'none'">
+    <div class="closing-title">High School Musical Jr.</div>
+    <div class="closing-sub">Herbert A. Ammons Middle · Drama</div>
+    <div class="closing-divider"></div>
+    <p class="closing-thanks">
+      A heartfelt thank you to our families, faculty, and friends for your boundless support.<br><br>
+      To our cast and crew — you are the heart of this show. We are so proud of each and every one of you.<br><br>
+      <em style="color:rgba(245,197,24,0.8);">Tonight, we're all in this together.</em>
+    </p>
+    <div class="closing-stars">★ ★ ★</div>
+  </div>
+
+  <!-- ══ NAV BAR ══ -->
+  <div class="nav-bar">
+    <button class="nav-btn" id="btn-prev" onclick="navigate(-1)" disabled>◀ Back</button>
+    <div class="page-indicator">
+      <span class="show-title">HSM Jr. · Program</span>
+      <span id="page-label">Cover</span>
+    </div>
+    <button class="nav-btn" id="btn-next" onclick="navigate(1)">Next ▶</button>
+  </div>
+
+</div><!-- /booklet -->
+
+<script>
+  const pages = ['page-0','page-1','page-2','page-3','page-4','page-5','page-closing'];
+  const labels = ['Cover','Welcome','Principal Cast','Ensemble','Production Team','Musical Numbers','Finale'];
+  let current = 0;
+
+  function navigate(dir) {
+    document.getElementById(pages[current]).classList.remove('active');
+    current = Math.max(0, Math.min(pages.length - 1, current + dir));
+    document.getElementById(pages[current]).classList.add('active');
+    document.getElementById('page-label').textContent = labels[current];
+    document.getElementById('btn-prev').disabled = current === 0;
+    document.getElementById('btn-next').disabled = current === pages.length - 1;
+    document.getElementById('booklet').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+</script>
+</body>
+</html>
