@@ -15,9 +15,7 @@
     --navy: #0a1628;
     --maroon: #3d0008;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   body {
     background: #1a0005;
     font-family: 'Lato', sans-serif;
@@ -25,11 +23,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
     padding: 20px 16px 40px;
   }
-
-  /* ── BOOKLET WRAPPER ── */
   .booklet {
     width: 100%;
     max-width: 560px;
@@ -40,397 +35,186 @@
     min-height: 600px;
     position: relative;
   }
-
-  /* ── PAGES ── */
   .page { display: none; flex-direction: column; }
   .page.active { display: flex; }
 
-  /* ── COVER PAGE ── */
-  #page-0 {
-    background: #0d0005;
-    align-items: center;
-    padding: 0;
-  }
-  .cover-poster {
-    width: 100%;
-    display: block;
-  }
+  /* COVER */
+  #page-0 { background: #0d0005; align-items: center; padding: 0; }
+  .cover-poster { width: 100%; display: block; }
   .cover-school-bar {
-    width: 100%;
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 14px 20px;
-    border-top: 3px solid var(--gold);
+    width: 100%; background: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; padding: 14px 20px; border-top: 3px solid var(--gold);
   }
-  .cover-school-bar img {
-    height: 54px;
-    width: auto;
-  }
-  .cover-school-text {
-    color: var(--gold);
-    font-family: 'Cinzel', serif;
-    font-size: 0.78rem;
-    letter-spacing: 0.05em;
-    line-height: 1.5;
-    text-align: left;
-  }
-  .cover-school-text strong {
-    display: block;
-    font-size: 0.92rem;
-    color: #fff;
-  }
+  .cover-school-bar img { height: 54px; width: auto; }
+  .cover-school-text { color: var(--gold); font-family: 'Cinzel', serif; font-size: 0.78rem; letter-spacing: 0.05em; line-height: 1.5; }
+  .cover-school-text strong { display: block; font-size: 0.92rem; color: #fff; }
 
-  /* ── INNER PAGES ── */
+  /* PAGE HEADER */
   .page-header {
     background: linear-gradient(135deg, var(--darkred) 0%, var(--red) 50%, var(--maroon) 100%);
-    padding: 22px 24px 18px;
-    text-align: center;
-    border-bottom: 4px solid var(--gold);
-    position: relative;
-    overflow: hidden;
+    padding: 22px 24px 18px; text-align: center;
+    border-bottom: 4px solid var(--gold); position: relative; overflow: hidden;
   }
   .page-header::before {
     content: '★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★ ★';
-    position: absolute;
-    top: 6px; left: 0; right: 0;
-    font-size: 0.55rem;
-    color: rgba(245,197,24,0.35);
-    letter-spacing: 4px;
-    text-align: center;
+    position: absolute; top: 6px; left: 0; right: 0;
+    font-size: 0.55rem; color: rgba(245,197,24,0.35); letter-spacing: 4px; text-align: center;
   }
-  .page-header h2 {
-    font-family: 'Cinzel', serif;
-    font-size: 1.35rem;
-    color: var(--gold);
-    letter-spacing: 0.12em;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-    margin-top: 6px;
-  }
-  .page-header .subtitle {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.7);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-top: 4px;
-  }
+  .page-header h2 { font-family: 'Cinzel', serif; font-size: 1.35rem; color: var(--gold); letter-spacing: 0.12em; text-shadow: 0 2px 6px rgba(0,0,0,0.5); margin-top: 6px; }
+  .page-header .subtitle { font-size: 0.7rem; color: rgba(255,255,255,0.7); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 4px; }
 
-  .page-body {
-    padding: 24px 24px 16px;
-    flex: 1;
-  }
+  .page-body { padding: 20px 16px 16px; flex: 1; }
 
-  /* ── DIRECTOR'S NOTE ── */
+  /* DIRECTOR NOTE */
   .directors-note {
-    background: white;
-    border-left: 4px solid var(--gold);
-    border-radius: 0 6px 6px 0;
-    padding: 18px 20px;
-    margin-bottom: 16px;
+    background: white; border-left: 4px solid var(--gold);
+    border-radius: 0 6px 6px 0; padding: 18px 20px; margin-bottom: 16px;
     box-shadow: 2px 2px 12px rgba(0,0,0,0.07);
   }
-  .directors-note .quote-mark {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    color: var(--gold);
-    line-height: 0.5;
-    display: block;
-    margin-bottom: 6px;
-  }
-  .directors-note p {
-    font-size: 0.88rem;
-    line-height: 1.75;
-    color: #333;
-  }
-  .directors-note .signature {
-    margin-top: 14px;
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    color: var(--darkred);
-    font-style: italic;
-  }
-  .directors-note .sig-title {
-    font-family: 'Lato', sans-serif;
-    font-size: 0.72rem;
-    color: #888;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  .directors-note .quote-mark { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--gold); line-height: 0.5; display: block; margin-bottom: 6px; }
+  .directors-note p { font-size: 0.88rem; line-height: 1.75; color: #333; }
+  .directors-note .signature { margin-top: 14px; font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--darkred); font-style: italic; }
+  .directors-note .sig-title { font-family: 'Lato', sans-serif; font-size: 0.72rem; color: #888; letter-spacing: 0.08em; text-transform: uppercase; }
 
-  /* ── CAST LIST ── */
   .section-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--darkred);
-    border-bottom: 1px solid var(--gold);
-    padding-bottom: 5px;
-    margin: 18px 0 12px;
-  }
-  .cast-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .cast-table tr {
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-  .cast-table tr:last-child { border-bottom: none; }
-  .cast-table td {
-    padding: 6px 4px;
-    font-size: 0.85rem;
-    vertical-align: top;
-    line-height: 1.4;
-  }
-  .cast-table .role {
-    font-weight: 700;
-    color: var(--darkred);
-    width: 46%;
-    padding-right: 8px;
-  }
-  .cast-table .actor {
-    color: #222;
-  }
-  .cast-table .understudy {
-    font-size: 0.76rem;
-    color: #777;
-    font-style: italic;
+    font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--darkred);
+    border-bottom: 1px solid var(--gold); padding-bottom: 5px; margin: 18px 0 12px;
   }
 
-  /* ensemble grid */
-  .ensemble-group { margin-bottom: 14px; }
-  .ensemble-group .group-label {
-    font-family: 'Cinzel', serif;
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    color: var(--darkred);
-    text-transform: uppercase;
-    margin-bottom: 6px;
-    border-left: 3px solid var(--gold);
-    padding-left: 8px;
+  /* PRINCIPAL CAST CARDS */
+  .cast-cards { display: flex; flex-direction: column; gap: 10px; }
+  .cast-card {
+    display: flex; align-items: center; gap: 12px;
+    background: white; border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 10px 12px;
+    border-left: 4px solid var(--gold);
   }
-  .name-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px 12px;
-  }
-  .name-grid span {
-    font-size: 0.82rem;
-    color: #333;
-    padding: 3px 0;
-    border-bottom: 1px dotted rgba(0,0,0,0.1);
-    line-height: 1.3;
-  }
-
-  /* ── SONGS ── */
-  .song-list { list-style: none; }
-  .song-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(0,0,0,0.07);
-    font-size: 0.85rem;
-    line-height: 1.4;
-  }
-  .song-list li:last-child { border-bottom: none; }
-  .song-num {
-    background: var(--red);
-    color: white;
-    font-family: 'Cinzel', serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    min-width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .cast-photo {
+    width: 64px; height: 64px; border-radius: 50%;
+    object-fit: cover; object-position: top;
     flex-shrink: 0;
-    margin-top: 1px;
+    border: 2px solid var(--gold);
+    background: #eee;
   }
-  .song-title {
-    font-weight: 700;
-    color: #1a1a1a;
+  .cast-photo-placeholder {
+    width: 64px; height: 64px; border-radius: 50%;
+    flex-shrink: 0; border: 2px solid var(--gold);
+    background: linear-gradient(135deg, var(--red), var(--darkred));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--gold); font-weight: 700;
   }
-  .song-title em {
-    font-style: normal;
-    color: var(--darkred);
-    text-decoration: underline;
-    text-decoration-color: var(--gold);
-  }
-  .song-cast {
-    font-size: 0.76rem;
-    color: #666;
-    margin-top: 1px;
-    display: block;
-  }
+  .cast-info { flex: 1; min-width: 0; }
+  .cast-role { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--darkred); margin-bottom: 2px; }
+  .cast-name { font-size: 0.95rem; font-weight: 700; color: #1a1a1a; line-height: 1.2; }
+  .cast-extra { font-size: 0.73rem; color: #777; font-style: italic; margin-top: 2px; line-height: 1.3; }
 
-  /* act divider */
-  .act-divider {
-    text-align: center;
-    margin: 14px 0 8px;
-    position: relative;
+  /* YEARBOOK GRID */
+  .yearbook-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px 8px;
   }
-  .act-divider::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0; right: 0;
-    height: 1px;
-    background: var(--gold);
+  .yearbook-card { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .yearbook-photo {
+    width: 84px; height: 84px; border-radius: 8px;
+    object-fit: cover; object-position: top;
+    border: 2px solid var(--gold); background: #eee; margin-bottom: 5px;
   }
-  .act-divider span {
-    background: var(--cream);
-    padding: 0 12px;
-    position: relative;
-    font-family: 'Cinzel', serif;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    color: var(--darkred);
-    text-transform: uppercase;
+  .yearbook-photo-placeholder {
+    width: 84px; height: 84px; border-radius: 8px;
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, var(--red), var(--darkred));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold); font-weight: 700;
+    margin-bottom: 5px; flex-shrink: 0;
   }
+  .yearbook-name { font-size: 0.72rem; font-weight: 700; color: #1a1a1a; line-height: 1.2; }
+  .yearbook-role { font-size: 0.62rem; color: #888; margin-top: 1px; }
 
-  /* ── CREW ── */
-  .crew-block { margin-bottom: 10px; }
-  .crew-block .crew-role {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--darkred);
+  /* TECH CARDS */
+  .tech-card {
+    display: flex; align-items: center; gap: 10px;
+    background: white; border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 8px 12px; margin-bottom: 8px;
+    border-left: 4px solid var(--navy);
   }
-  .crew-block .crew-name {
-    font-size: 0.88rem;
-    color: #222;
-    margin-top: 1px;
+  .tech-photo {
+    width: 52px; height: 52px; border-radius: 50%;
+    object-fit: cover; object-position: top; flex-shrink: 0;
+    border: 2px solid var(--navy); background: #eee;
   }
+  .tech-photo-placeholder {
+    width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+    border: 2px solid var(--navy);
+    background: linear-gradient(135deg, var(--navy), #1a3a5c);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 0.9rem; color: var(--gold); font-weight: 700;
+  }
+  .tech-info .tech-role { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); }
+  .tech-info .tech-name { font-size: 0.88rem; font-weight: 700; color: #1a1a1a; }
 
-  /* ── CLOSING PAGE ── */
+  /* SONGS */
+  .song-list { list-style: none; }
+  .song-list li { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,0.07); font-size: 0.85rem; line-height: 1.4; }
+  .song-list li:last-child { border-bottom: none; }
+  .song-num { background: var(--red); color: white; font-family: 'Cinzel', serif; font-size: 0.65rem; font-weight: 700; min-width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+  .song-title { font-weight: 700; color: #1a1a1a; }
+  .song-title em { font-style: normal; color: var(--darkred); text-decoration: underline; text-decoration-color: var(--gold); }
+  .song-cast { font-size: 0.76rem; color: #666; margin-top: 1px; display: block; }
+  .act-divider { text-align: center; margin: 14px 0 8px; position: relative; }
+  .act-divider::before { content: ''; position: absolute; top: 50%; left: 0; right: 0; height: 1px; background: var(--gold); }
+  .act-divider span { background: var(--cream); padding: 0 12px; position: relative; font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.2em; color: var(--darkred); text-transform: uppercase; }
+
+  /* CLOSING */
   #page-closing {
     background: linear-gradient(180deg, #0d0005 0%, #1a0005 100%);
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 28px;
-    min-height: 400px;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 40px 28px; min-height: 500px;
   }
-  .closing-logo {
-    width: 110px;
-    opacity: 0.9;
-    margin-bottom: 20px;
-  }
-  .closing-title {
-    font-family: 'Cinzel', serif;
-    font-size: 1.4rem;
-    color: var(--gold);
-    line-height: 1.2;
-    margin-bottom: 6px;
-  }
-  .closing-sub {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.55);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 28px;
-  }
-  .closing-divider {
-    width: 60px;
-    height: 2px;
-    background: var(--gold);
-    margin: 0 auto 28px;
-  }
-  .closing-thanks {
-    font-size: 0.92rem;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.9;
-    max-width: 360px;
-  }
-  .closing-stars {
-    margin-top: 28px;
-    font-size: 1.1rem;
-    color: var(--gold);
-    letter-spacing: 8px;
-  }
+  .closing-logo { width: 110px; opacity: 0.9; margin-bottom: 20px; }
+  .closing-title { font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--gold); line-height: 1.2; margin-bottom: 6px; }
+  .closing-sub { font-size: 0.78rem; color: rgba(255,255,255,0.55); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 28px; }
+  .closing-divider { width: 60px; height: 2px; background: var(--gold); margin: 0 auto 28px; }
+  .closing-thanks { font-size: 0.92rem; color: rgba(255,255,255,0.8); line-height: 1.9; max-width: 360px; }
+  .closing-stars { margin-top: 28px; font-size: 1.1rem; color: var(--gold); letter-spacing: 8px; }
 
-  /* ── NAVIGATION ── */
-  .nav-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 20px;
-    background: var(--navy);
-    border-top: 3px solid var(--gold);
-  }
-  .nav-btn {
-    background: var(--red);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 9px 20px;
-    font-family: 'Cinzel', serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  }
+  /* NAV */
+  .nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; background: var(--navy); border-top: 3px solid var(--gold); }
+  .nav-btn { background: var(--red); color: white; border: none; border-radius: 3px; padding: 9px 20px; font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.1em; cursor: pointer; transition: background 0.2s, transform 0.1s; box-shadow: 0 2px 6px rgba(0,0,0,0.4); }
   .nav-btn:hover { background: var(--darkred); transform: translateY(-1px); }
   .nav-btn:active { transform: translateY(0); }
-  .nav-btn:disabled {
-    background: #555;
-    cursor: default;
-    transform: none;
-    box-shadow: none;
-    opacity: 0.5;
-  }
-  .page-indicator {
-    font-family: 'Cinzel', serif;
-    font-size: 0.72rem;
-    color: var(--gold);
-    letter-spacing: 0.1em;
-    text-align: center;
-    line-height: 1.4;
-  }
-  .page-indicator .show-title {
-    font-size: 0.6rem;
-    color: rgba(255,255,255,0.45);
-    display: block;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
+  .nav-btn:disabled { background: #555; cursor: default; transform: none; box-shadow: none; opacity: 0.5; }
+  .page-indicator { font-family: 'Cinzel', serif; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em; text-align: center; line-height: 1.4; }
+  .page-indicator .show-title { font-size: 0.6rem; color: rgba(255,255,255,0.45); display: block; letter-spacing: 0.15em; text-transform: uppercase; }
 </style>
 </head>
 <body>
-
 <div class="booklet" id="booklet">
 
-  <!-- ══ PAGE 0: COVER ══ -->
+  <!-- PAGE 0: COVER -->
   <div class="page active" id="page-0">
-    <img class="cover-poster" src="cover.png" alt="High School Musical Jr. Poster" onerror="this.style.display='none'; document.getElementById('cover-fallback').style.display='flex'">
-    <div id="cover-fallback" style="display:none; flex-direction:column; align-items:center; justify-content:center; background:linear-gradient(160deg,#7a0010,#b8001f,#3d0008); min-height:420px; padding:40px 24px; text-align:center;">
-      <div style="font-family:'Cinzel',serif; font-size:0.8rem; letter-spacing:0.25em; color:rgba(255,255,255,0.7); text-transform:uppercase; margin-bottom:16px;">Ammons Drama Presents</div>
-      <div style="font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:900; color:var(--gold); line-height:1; text-shadow:0 0 30px rgba(245,197,24,0.5);">HIGH<br>SCHOOL<br>MUSICAL</div>
-      <div style="font-family:'Playfair Display',serif; font-size:1.6rem; color:white; margin-top:4px;">Jr.</div>
-      <div style="margin-top:20px; font-family:'Lato',sans-serif; font-size:0.85rem; color:rgba(255,255,255,0.85); line-height:2;">
-        March 10th &amp; 11th · 7:00 PM<br>
-        South Dade High School
-      </div>
+    <img class="cover-poster" src="cover.png" alt="High School Musical Jr. Poster"
+      onerror="this.style.display='none';document.getElementById('cover-fallback').style.display='flex'">
+    <div id="cover-fallback" style="display:none;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(160deg,#7a0010,#b8001f,#3d0008);min-height:420px;padding:40px 24px;text-align:center;">
+      <div style="font-family:'Cinzel',serif;font-size:0.8rem;letter-spacing:0.25em;color:rgba(255,255,255,0.7);text-transform:uppercase;margin-bottom:16px;">Ammons Drama Presents</div>
+      <div style="font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;color:var(--gold);line-height:1;">HIGH<br>SCHOOL<br>MUSICAL</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:white;margin-top:4px;">Jr.</div>
+      <div style="margin-top:20px;font-size:0.85rem;color:rgba(255,255,255,0.85);line-height:2;">March 10th &amp; 11th · 7:00 PM<br>South Dade High School</div>
     </div>
     <div class="cover-school-bar">
       <img src="logo.jpg" alt="Herbert A. Ammons Middle School Logo" onerror="this.style.display='none'">
       <div class="cover-school-text">
         <strong>Herbert A. Ammons Middle</strong>
-        Ammons Drama Department<br>
-        An IB World School
+        Ammons Drama Department<br>An IB World School
       </div>
     </div>
   </div>
 
-  <!-- ══ PAGE 1: DIRECTOR'S NOTE ══ -->
+  <!-- PAGE 1: DIRECTOR'S NOTE -->
   <div class="page" id="page-1">
     <div class="page-header">
       <div class="subtitle">From the Director</div>
@@ -439,239 +223,639 @@
     <div class="page-body">
       <div class="directors-note">
         <span class="quote-mark">"</span>
-        <p>Welcome to <em style="font-style:italic; color:var(--darkred);">High School Musical Jr.</em> — a show about breaking boundaries, finding your voice, and discovering that you're more than just one thing.</p>
+        <p>Welcome to <em style="font-style:italic;color:var(--darkred);">High School Musical Jr.</em> — a show about breaking boundaries, finding your voice, and discovering that you're more than just one thing.</p>
         <br>
-        <p>These incredible students have poured their hearts into every rehearsal, every song, and every step. Tonight, they share that passion with you. We hope this performance reminds you — and them — that when we work together, when we lift each other up, we truly are <em style="font-style:italic; color:var(--darkred);">all in this together.</em></p>
+        <p>These incredible students have poured their hearts into every rehearsal, every song, and every step. Tonight, they share that passion with you. We hope this performance reminds you — and them — that when we work together, when we lift each other up, we truly are <em style="font-style:italic;color:var(--darkred);">all in this together.</em></p>
         <br>
         <p>Thank you for being here to celebrate them. Sit back, enjoy the show, and let yourself be swept away by the magic of live theatre.</p>
         <div class="signature">Ms. Faride Jamid</div>
         <div class="sig-title">Director · Ammons Drama</div>
       </div>
-
       <div class="section-label">Show Information</div>
-      <div style="font-size:0.84rem; line-height:2; color:#333;">
+      <div style="font-size:0.84rem;line-height:2;color:#333;">
         <strong style="color:var(--darkred);">Performances:</strong> March 10 &amp; 11, 2025 · 7:00 PM<br>
         <strong style="color:var(--darkred);">Venue:</strong> South Dade High School<br>
-        <span style="font-size:0.78rem; color:#666;">28401 SW 167th Ave, Homestead, FL 33030</span>
+        <span style="font-size:0.78rem;color:#666;">28401 SW 167th Ave, Homestead, FL 33030</span>
       </div>
     </div>
   </div>
 
-  <!-- ══ PAGE 2: PRINCIPAL CAST ══ -->
+  <!-- PAGE 2: PRINCIPAL CAST -->
   <div class="page" id="page-2">
     <div class="page-header">
       <div class="subtitle">Meet the</div>
       <h2>Principal Cast</h2>
     </div>
     <div class="page-body">
-      <table class="cast-table">
-        <tr>
-          <td class="role">Troy Bolton</td>
-          <td class="actor">Lucas Murgado</td>
-        </tr>
-        <tr>
-          <td class="role">Gabriella Montez</td>
-          <td class="actor">Nyla Hodge<br><span class="understudy">& Melissa Villares-Lopez</span></td>
-        </tr>
-        <tr>
-          <td class="role">Sharpay Evans</td>
-          <td class="actor">Allie Rose Estinvil<br><span class="understudy">Understudy: Maya Mendez</span></td>
-        </tr>
-        <tr>
-          <td class="role">Ryan Evans</td>
-          <td class="actor">Adriano Gutierrez<br><span class="understudy">Status Quo: KK Heimer</span></td>
-        </tr>
-        <tr>
-          <td class="role">Kelsi Nielsen</td>
-          <td class="actor">Sofia Arias<br><span class="understudy">& Karsyn Thompson</span></td>
-        </tr>
-        <tr>
-          <td class="role">Chad Danforth</td>
-          <td class="actor">Genaro Espinales</td>
-        </tr>
-        <tr>
-          <td class="role">Zeke Baylor</td>
-          <td class="actor">Nestor Serret</td>
-        </tr>
-        <tr>
-          <td class="role">Taylor McKessie</td>
-          <td class="actor">Ella Khan<br><span class="understudy">Understudy: Jasmine Ramkhelawan</span></td>
-        </tr>
-        <tr>
-          <td class="role">Martha Cox</td>
-          <td class="actor">Tahera Riviere<br><span class="understudy">& Brianna Swann</span></td>
-        </tr>
-        <tr>
-          <td class="role">Jackie Scott</td>
-          <td class="actor">Mariah Kinlaw</td>
-        </tr>
-        <tr>
-          <td class="role">Ms. Darbus</td>
-          <td class="actor">Emily Espino Vidal</td>
-        </tr>
-        <tr>
-          <td class="role">Coach Bolton</td>
-          <td class="actor">Jake Rodriguez</td>
-        </tr>
-        <tr>
-          <td class="role">Jason</td>
-          <td class="actor">Logan Rincon</td>
-        </tr>
-      </table>
+      <div class="cast-cards">
 
-      <div class="section-label">Featured Ensemble</div>
-      <div class="name-grid">
-        <span>Anthony Obregon</span>
-        <span>Lucas Duvivier</span>
-        <span>Rodolfo Pedraza</span>
-        <span>Angela Gomez <em style="font-size:0.7rem;color:#888">(Dance Captain)</em></span>
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/LUCA MURGADO-8TH GRADE-TROY BOLTON-PRIMARY ACTOR.JPEG" alt="Lucas Murgado" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">L</div>
+          <div class="cast-info"><div class="cast-role">Troy Bolton</div><div class="cast-name">Lucas Murgado</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/NYLA HODGE-7TH GRADE-GABRIELLA MONTEZ-PRIMARY ACTOR.JPEG" alt="Nyla Hodge" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">N</div>
+          <div class="cast-info"><div class="cast-role">Gabriella Montez</div><div class="cast-name">Nyla Hodge</div><div class="cast-extra">& Melissa Villares-Lopez</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/MELISSA VILLARES LOPEZ-8TH GRADE-GABRIELLA MONTEZ-PRIMARY ACTOR.JPEG" alt="Melissa Villares Lopez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">M</div>
+          <div class="cast-info"><div class="cast-role">Gabriella Montez</div><div class="cast-name">Melissa Villares-Lopez</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/ALLIE ROSE ESTINVIL-7TH GRADE-SHARPAY EVANS-PRIMARY ACTOR.JPEG" alt="Allie Rose Estinvil" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">A</div>
+          <div class="cast-info"><div class="cast-role">Sharpay Evans</div><div class="cast-name">Allie Rose Estinvil</div><div class="cast-extra">Understudy: Maya Mendez</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/ADRIANO GUTIERREZ-7TH GRADE-RYAN EVANS-PRIMARY ACTOR.JPEG" alt="Adriano Gutierrez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">A</div>
+          <div class="cast-info"><div class="cast-role">Ryan Evans</div><div class="cast-name">Adriano Gutierrez</div><div class="cast-extra">Status Quo: KK Heimer</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/SOFIA ARIAS-6TH GRADE-KELSI NIELSEN-PRIMARY ACTOR.JPEG" alt="Sofia Arias" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">S</div>
+          <div class="cast-info"><div class="cast-role">Kelsi Nielsen</div><div class="cast-name">Sofia Arias</div><div class="cast-extra">& Karsyn Thompson</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/KARSYN THOMPSON-8TH GRADE-KELSI NIELSEN-PRIMARY ACTOR.JPEG" alt="Karsyn Thompson" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">K</div>
+          <div class="cast-info"><div class="cast-role">Kelsi Nielsen</div><div class="cast-name">Karsyn Thompson</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/GENARO ESPINALES-8TH GRADE-CHAD DANFORTH-PRIMARY ACTOR.JPEG" alt="Genaro Espinales" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">G</div>
+          <div class="cast-info"><div class="cast-role">Chad Danforth</div><div class="cast-name">Genaro Espinales</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/NESTOR SERRET-7TH GRADE-ZEKE BAYLOR-PRIMARY ACTOR.JPEG" alt="Nestor Serret" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">N</div>
+          <div class="cast-info"><div class="cast-role">Zeke Baylor</div><div class="cast-name">Nestor Serret</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/ELLA KHAN-8TH GRADE-TAYLOR MCKESSIE-PRIMARY ACTOR.JPEG" alt="Ella Khan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">E</div>
+          <div class="cast-info"><div class="cast-role">Taylor McKessie</div><div class="cast-name">Ella Khan</div><div class="cast-extra">Understudy: Jasmine Ramkhelawan</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/TAHERA RIVIERE-8TH GRADE-MARTHA COX-PRIMARY ACTOR.JPEG" alt="Tahera Riviere" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">T</div>
+          <div class="cast-info"><div class="cast-role">Martha Cox</div><div class="cast-name">Tahera Riviere</div><div class="cast-extra">& Brianna Swann</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/BRIANNA SWANN-8TH GRADE-MARTHA COX-PRIMARY ACTOR.JPEG" alt="Brianna Swann" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">B</div>
+          <div class="cast-info"><div class="cast-role">Martha Cox</div><div class="cast-name">Brianna Swann</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/MARIAH KINLAW-6TH GRADE-JACKIE SCOTT-PRIMARY ACTOR.JPEG" alt="Mariah Kinlaw" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">M</div>
+          <div class="cast-info"><div class="cast-role">Jackie Scott</div><div class="cast-name">Mariah Kinlaw</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/KARLA PIERRE-8TH GRADE-JACKIE SCOTT-PRIMARY ACTOR.JPEG" alt="Karla Pierre" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">K</div>
+          <div class="cast-info"><div class="cast-role">Jackie Scott</div><div class="cast-name">Karla Pierre</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/EMILY ESPINO VIDAL-8TH GRADE-MRS DARBUS-PRIMARY ACTOR.JPEG" alt="Emily Espino Vidal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">E</div>
+          <div class="cast-info"><div class="cast-role">Ms. Darbus</div><div class="cast-name">Emily Espino Vidal</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/JACKE RODRIGUEZ-7TH GRADE-COACH BOLTON-PRIMARY ACTOR.JPEG" alt="Jake Rodriguez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">J</div>
+          <div class="cast-info"><div class="cast-role">Coach Bolton</div><div class="cast-name">Jake Rodriguez</div></div>
+        </div>
+
+        <div class="cast-card">
+          <img class="cast-photo" src="photos/LOGAN RINCON-8TH GRADE-JOCK-ENSEMBLE.JPEG" alt="Logan Rincon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">L</div>
+          <div class="cast-info"><div class="cast-role">Jason</div><div class="cast-name">Logan Rincon</div></div>
+        </div>
+
       </div>
     </div>
   </div>
 
-  <!-- ══ PAGE 3: ENSEMBLE ══ -->
+  <!-- PAGE 3: CHEERLEADERS & DANCERS -->
   <div class="page" id="page-3">
     <div class="page-header">
-      <div class="subtitle">The</div>
-      <h2>Ensemble</h2>
+      <div class="subtitle">The Ensemble</div>
+      <h2>Cheerleaders &amp; Dancers</h2>
     </div>
     <div class="page-body">
+      <div class="yearbook-grid">
 
-      <div class="ensemble-group">
-        <div class="group-label">Cheerleaders &amp; Color Guard</div>
-        <div class="name-grid">
-          <span>Aliyah Ariza</span>
-          <span>Sophia Bassett</span>
-          <span>Emma Gonzalez</span>
-          <span>Jasmine Kissoonlal</span>
-          <span>Keira Lopez</span>
-          <span>Alice Machado</span>
-          <span>Emma Mayorga</span>
-          <span>M'Kaylah McCoy</span>
-          <span>Karla Pierre</span>
-          <span>Alanna Rivaldo</span>
-          <span>Kara Williams</span>
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ANGELA GOMEZ-7TH GRADE-DANCE CAPTAIN-ENSEMBLE.JPEG" alt="Angela Gomez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Angela Gomez</div><div class="yearbook-role">Dance Captain</div>
         </div>
-      </div>
 
-      <div class="ensemble-group">
-        <div class="group-label">8th Grade</div>
-        <div class="name-grid">
-          <span>Aleisha Anderson</span>
-          <span>Katherine Chan Garcia</span>
-          <span>Grace Correa</span>
-          <span>Jaycee Groves</span>
-          <span>Arianna Gross</span>
-          <span>Briana Henry</span>
-          <span>Brittany Hull</span>
-          <span>Yoseline Lopez</span>
-          <span>Madeline Pedraza</span>
-          <span>Mia Romero</span>
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ALIYAH ARIZA-7TH GRADE-CHEERLEADER-ENSEMBLE.JPEG" alt="Aliyah Ariza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Aliyah Ariza</div><div class="yearbook-role">Cheerleader</div>
         </div>
-      </div>
 
-      <div class="ensemble-group">
-        <div class="group-label">7th Grade</div>
-        <div class="name-grid">
-          <span>Sol Benavidez</span>
-          <span>Julieta Bravo-Sosa</span>
-          <span>Savannah Gomez</span>
-          <span>Alejandra Lopez</span>
-          <span>Nancy Madubuike</span>
-          <span>Juliette Mora</span>
-          <span>Valerie Proenza</span>
-          <span>Sabrina Suarez-Rua</span>
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/SOPHIA BASSETT-7TH GRADE-DANCER-ENSEMBLE.JPEG" alt="Sophia Bassett" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">S</div>
+          <div class="yearbook-name">Sophia Bassett</div><div class="yearbook-role">Dancer</div>
         </div>
-      </div>
 
-      <div class="ensemble-group">
-        <div class="group-label">6th Grade</div>
-        <div class="name-grid">
-          <span>Alisha Anderson</span>
-          <span>Lyanis Cabreraestevez</span>
-          <span>Amanda Castaneda</span>
-          <span>Ximena Dajui</span>
-          <span>Emily Gonzalez Diaz</span>
-          <span>Lesslie Loureiro</span>
-          <span>Alison Medina</span>
-          <span>Carolina Melian</span>
-          <span>Katalina Morales</span>
-          <span>Madelyn Penton</span>
-          <span>Sarah Peraza</span>
-          <span>Lucia Perdigon</span>
-          <span>Allison Pereza</span>
-          <span>Vivienne Rios Raya</span>
-          <span>Mila Rincon</span>
-          <span>Samantha Rosales</span>
-          <span>Amanda Vazquez Perdomo</span>
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/EMMA GONZALEZ-8TH GRADE-CHEERLEADER-LEAD DANCER.JPEG" alt="Emma Gonzalez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">E</div>
+          <div class="yearbook-name">Emma Gonzalez</div><div class="yearbook-role">Lead Dancer</div>
         </div>
-      </div>
 
-      <div class="ensemble-group">
-        <div class="group-label">4th Period Class</div>
-        <div class="name-grid">
-          <span>Jocelyn Cespedes</span>
-          <span>Penelope Levin</span>
-          <span>Leah Leyva</span>
-          <span>Arianna Torres</span>
-          <span>Antonella Torresalvear</span>
-          <span>Anastasia Valles</span>
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/JASMINE KISSOONLAL-8TH GRADE-CHEERLEADER-LEAD DANCER.JPEG" alt="Jasmine Kissoonlal" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">J</div>
+          <div class="yearbook-name">Jasmine Kissoonlal</div><div class="yearbook-role">Lead Dancer</div>
         </div>
-      </div>
 
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/KEIRA LOPEZ-6TH GRADE-CHEERLEADER-ENSEMBLE.JPEG" alt="Keira Lopez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">K</div>
+          <div class="yearbook-name">Keira Lopez</div><div class="yearbook-role">Cheerleader</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ALICE MACHADO-7TH GRADE-CHEERLEADER-ENSEMBLE.JPEG" alt="Alice Machado" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Alice Machado</div><div class="yearbook-role">Cheerleader</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/EMMA MAYORGA-8TH GRADE-CHEERLEADER-LEAD DANCER.JPEG" alt="Emma Mayorga" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">E</div>
+          <div class="yearbook-name">Emma Mayorga</div><div class="yearbook-role">Lead Dancer</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/M'KAYLAH MCCOY-8TH GRADE-COLORGUARD-JOCK-ENSEMBLE.JPEG" alt="M'Kaylah McCoy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">M</div>
+          <div class="yearbook-name">M'Kaylah McCoy</div><div class="yearbook-role">Color Guard</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ALANNA RIVALDO-7TH GRADE-CHEERLEADER-ENSEMBLE.JPEG" alt="Alanna Rivaldo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Alanna Rivaldo</div><div class="yearbook-role">Cheerleader</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/CARA WILLIAMS-7TH GRADE-CHEERLEADER-ENSEMBLE.JPEG" alt="Kara Williams" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">K</div>
+          <div class="yearbook-name">Kara Williams</div><div class="yearbook-role">Cheerleader</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/SABRINA SUAREZ RUA-7TH GRADE-COLORGUARD.JPEG" alt="Sabrina Suarez-Rua" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">S</div>
+          <div class="yearbook-name">Sabrina Suarez-Rua</div><div class="yearbook-role">Color Guard</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ANTONELLA TORRES-8TH GRADE-COLORGUARD-ENSEMBLE.JPEG" alt="Antonella Torres" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Antonella Torres</div><div class="yearbook-role">Color Guard</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/MADELYN PENTON-6TH GRADE-COLORGUARD-ENSEMBLE.JPEG" alt="Madelyn Penton" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">M</div>
+          <div class="yearbook-name">Madelyn Penton</div><div class="yearbook-role">Color Guard</div>
+        </div>
+
+      </div>
     </div>
   </div>
 
-  <!-- ══ PAGE 4: PRODUCTION TEAM ══ -->
+  <!-- PAGE 4: 8TH GRADE ENSEMBLE -->
   <div class="page" id="page-4">
+    <div class="page-header">
+      <div class="subtitle">The Ensemble</div>
+      <h2>8th Grade</h2>
+    </div>
+    <div class="page-body">
+      <div class="yearbook-grid">
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ALEISHA ANDERSON-7TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Aleisha Anderson" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Aleisha Anderson</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ANTHONY OBREGON-8TH GRADE-JOCK-ENSEMBLE.JPEG" alt="Anthony Obregon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Anthony Obregon</div><div class="yearbook-role">Jock</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ARIANNA GROSS-8TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Arianna Gross" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Arianna Gross</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ARIANNA TORRES-8TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Arianna Torres" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Arianna Torres</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/BRIANNA HENRY-8TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Briana Henry" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">B</div>
+          <div class="yearbook-name">Briana Henry</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/BRITTANY HULL-8TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Brittany Hull" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">B</div>
+          <div class="yearbook-name">Brittany Hull</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/GRACE CORREA-8TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Grace Correa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">G</div>
+          <div class="yearbook-name">Grace Correa</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/JASMINE RAMKHELAWAN-8TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Jasmine Ramkhelawan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">J</div>
+          <div class="yearbook-name">Jasmine Ramkhelawan</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/JAYCEE GROVES-8TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Jaycee Groves" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">J</div>
+          <div class="yearbook-name">Jaycee Groves</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/JOCELYN CESPEDES-8TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Jocelyn Cespedes" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">J</div>
+          <div class="yearbook-name">Jocelyn Cespedes</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/KATHERINE CHAN GARCIA-8TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Katherine Chan Garcia" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">K</div>
+          <div class="yearbook-name">Katherine Chan Garcia</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/KAYLIE HEIMER-8TH GRADE-REBEL-ENSEMBLE.JPEG" alt="KK Heimer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">K</div>
+          <div class="yearbook-name">KK Heimer</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/MADELINE PEDRAZA-8TH GRADE-ENSEMBLE.JPEG" alt="Madeline Pedraza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">M</div>
+          <div class="yearbook-name">Madeline Pedraza</div><div class="yearbook-role">Ensemble</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/MIA ROMERO-8TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Mia Romero" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">M</div>
+          <div class="yearbook-name">Mia Romero</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/PENELOPE LEVIN-8TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Penelope Levin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">P</div>
+          <div class="yearbook-name">Penelope Levin</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ANASTASIA VALLES-8TH GRADE-JOCK-ENSEMBLE.JPEG" alt="Anastasia Valles" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Anastasia Valles</div><div class="yearbook-role">Jock</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/YOSELINE LOPEZ-8TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Yoseline Lopez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">Y</div>
+          <div class="yearbook-name">Yoseline Lopez</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 5: 7TH GRADE ENSEMBLE -->
+  <div class="page" id="page-5">
+    <div class="page-header">
+      <div class="subtitle">The Ensemble</div>
+      <h2>7th Grade</h2>
+    </div>
+    <div class="page-body">
+      <div class="yearbook-grid">
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/AMAYA LOPEZ-7TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Amaya Lopez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Amaya Lopez</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/JULIETA BRAVOSOSA-7TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Julieta Bravo-Sosa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">J</div>
+          <div class="yearbook-name">Julieta Bravo-Sosa</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/JULIETTE MORA-7TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Juliette Mora" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">J</div>
+          <div class="yearbook-name">Juliette Mora</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/LEAH LEYVA-7TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Leah Leyva" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">L</div>
+          <div class="yearbook-name">Leah Leyva</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ALEJANDRA LOPEZ-7TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Alejandra Lopez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Alejandra Lopez</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/MAYA MENDEZ-7TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Maya Mendez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">M</div>
+          <div class="yearbook-name">Maya Mendez</div><div class="yearbook-role">Thespian / Understudy</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/RODOLFO PEDRAZA-7TH GRADE-JOCKS-ENSEMBLE.JPEG" alt="Rodolfo Pedraza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">R</div>
+          <div class="yearbook-name">Rodolfo Pedraza</div><div class="yearbook-role">Jock</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/SAVANNAH GOMEZ-7TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Savannah Gomez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">S</div>
+          <div class="yearbook-name">Savannah Gomez</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/SOL BENAVIDES-7TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Sol Benavidez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">S</div>
+          <div class="yearbook-name">Sol Benavidez</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/VALERIE PROENZA-7TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Valerie Proenza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">V</div>
+          <div class="yearbook-name">Valerie Proenza</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/LUCAS DUVIVIER-6TH GRADE-JOCK-ENSEMBLE.JPEG" alt="Lucas Duvivier" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">L</div>
+          <div class="yearbook-name">Lucas Duvivier</div><div class="yearbook-role">Jock</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 6: 6TH GRADE ENSEMBLE -->
+  <div class="page" id="page-6">
+    <div class="page-header">
+      <div class="subtitle">The Ensemble</div>
+      <h2>6th Grade</h2>
+    </div>
+    <div class="page-body">
+      <div class="yearbook-grid">
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ALISHA ANDERSON-6TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Alisha Anderson" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Alisha Anderson</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ALISON MEDINA-6TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Alison Medina" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Alison Medina</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/ALLISON PERAZA-6TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Allison Pereza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Allison Pereza</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/AMANDA CASTANEDA-6TH GRADE-JOCK-ENSEMBLE.JPEG" alt="Amanda Castaneda" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Amanda Castaneda</div><div class="yearbook-role">Jock</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/AMANDA VAZQUEZ PERDOMO-6TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Amanda Vazquez Perdomo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">A</div>
+          <div class="yearbook-name">Amanda Vazquez Perdomo</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/CAROLINA MILIAN-6TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Carolina Melian" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">C</div>
+          <div class="yearbook-name">Carolina Melian</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/EMILY GONZALEZ DIAZ-6TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Emily Gonzalez Diaz" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">E</div>
+          <div class="yearbook-name">Emily Gonzalez Diaz</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/KATALINA MORALES-6TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Katalina Morales" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">K</div>
+          <div class="yearbook-name">Katalina Morales</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/LESSLIE LOUREIRO-6TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Lesslie Loureiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">L</div>
+          <div class="yearbook-name">Lesslie Loureiro</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/LUCIA PERDIGON-6TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Lucia Perdigon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">L</div>
+          <div class="yearbook-name">Lucia Perdigon</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/LYANIS CARERA ESTEVEZ-6TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Lyanis Cabreraestevez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">L</div>
+          <div class="yearbook-name">Lyanis Cabreraestevez</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/MILA RINCON-6TH GRADE-JOCK-ENSEMBLE.JPEG" alt="Mila Rincon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">M</div>
+          <div class="yearbook-name">Mila Rincon</div><div class="yearbook-role">Jock</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/SAMANTHA ROSALES-6TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Samantha Rosales" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">S</div>
+          <div class="yearbook-name">Samantha Rosales</div><div class="yearbook-role">Rebel</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/SARAH PERAZA-6TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Sarah Peraza" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">S</div>
+          <div class="yearbook-name">Sarah Peraza</div><div class="yearbook-role">Thespian</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/VIVIANNE RIOS RAYA-6TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Vivienne Rios Raya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">V</div>
+          <div class="yearbook-name">Vivienne Rios Raya</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+        <div class="yearbook-card">
+          <img class="yearbook-photo" src="photos/XIMENA DAJUI-6TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Ximena Dajui" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="yearbook-photo-placeholder" style="display:none">X</div>
+          <div class="yearbook-name">Ximena Dajui</div><div class="yearbook-role">Brainiac</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 7: PRODUCTION TEAM -->
+  <div class="page" id="page-7">
     <div class="page-header">
       <div class="subtitle">Behind the Curtain</div>
       <h2>Production Team</h2>
     </div>
     <div class="page-body">
 
-      <div class="section-label">Stage Management</div>
-      <div class="crew-block">
-        <div class="crew-role">Stage Manager</div>
-        <div class="crew-name">Ciara Gibbs</div>
+      <div class="section-label">Stage Management &amp; Alumni</div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/CIARA GIBBS-8TH GRADE-TECH-STAGE MANAGER.JPEG" alt="Ciara Gibbs" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">C</div>
+        <div class="tech-info"><div class="tech-role">Stage Manager</div><div class="tech-name">Ciara Gibbs</div></div>
       </div>
-      <div class="crew-block">
-        <div class="crew-role">Assistant Stage Manager</div>
-        <div class="crew-name">Mariana Rojas</div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/MARIANA ROJAS-8TH GRADE-TECH-ASSISTANT STAGE MANAGER.JPEG" alt="Mariana Rojas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">M</div>
+        <div class="tech-info"><div class="tech-role">Assistant Stage Manager</div><div class="tech-name">Mariana Rojas</div></div>
       </div>
-      <div class="crew-block">
-        <div class="crew-role">Alumni Liaison</div>
-        <div class="crew-name">Luna Barrios</div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/LUNA S. BARRIOS-9TH GRADE- ALUMNI LIAISON.JPEG" alt="Luna Barrios" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">L</div>
+        <div class="tech-info"><div class="tech-role">Alumni Liaison</div><div class="tech-name">Luna Barrios</div></div>
       </div>
-      <div class="crew-block">
-        <div class="crew-role">Alumni</div>
-        <div class="crew-name">Adriana Martin</div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/ADRIANA MARTIN-9TH GRADE-ALUMNI.JPEG" alt="Adriana Martin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">A</div>
+        <div class="tech-info"><div class="tech-role">Alumni</div><div class="tech-name">Adriana Martin</div></div>
       </div>
 
       <div class="section-label">Tech Crew</div>
-      <div class="crew-block">
-        <div class="crew-role">Two-Week Tech (4th Period)</div>
-        <div class="crew-name">Chelsea Olivas · Isys Wynn</div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/CHELSEA OLIVAS-8TH GRADE-TECH.JPEG" alt="Chelsea Olivas" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">C</div>
+        <div class="tech-info"><div class="tech-role">Two-Week Tech</div><div class="tech-name">Chelsea Olivas</div></div>
       </div>
-      <div class="crew-block">
-        <div class="crew-role">Two-Week Tech (School)</div>
-        <div class="crew-name">Jazmine Diaz</div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/ISYS WYNN-7TH GRADE-TECH-SOUND.JPEG" alt="Isys Wynn" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">I</div>
+        <div class="tech-info"><div class="tech-role">Two-Week Tech · Sound</div><div class="tech-name">Isys Wynn</div></div>
+      </div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/JASZMINE DIAZ-8TH GRADE-TECH-MAKEUP.JPEG" alt="Jazmine Diaz" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">J</div>
+        <div class="tech-info"><div class="tech-role">Two-Week Tech · Makeup</div><div class="tech-name">Jazmine Diaz</div></div>
+      </div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/AMAYA PEREZ-8TH GRADE-TECH-PROPS.JPEG" alt="Amaya Perez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">A</div>
+        <div class="tech-info"><div class="tech-role">Tech · Props</div><div class="tech-name">Amaya Perez</div></div>
+      </div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/GABRIELLA MESA-8TH GRADE-TECH-PROPS.JPEG" alt="Gabriella Mesa" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">G</div>
+        <div class="tech-info"><div class="tech-role">Tech · Props</div><div class="tech-name">Gabriella Mesa</div></div>
+      </div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/ELISE DUBON-8TH GRADE-TECH-SET.JPEG" alt="Elise Dubon" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">E</div>
+        <div class="tech-info"><div class="tech-role">Tech · Set</div><div class="tech-name">Elise Dubon</div></div>
+      </div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/ISABELLA BEHARANO-8TH GRADE-TECH-SET.JPEG" alt="Isabella Beharano" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">I</div>
+        <div class="tech-info"><div class="tech-role">Tech · Set</div><div class="tech-name">Isabella Beharano</div></div>
+      </div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/MILA MENDEZ-7TH GRADE-TECH-SET.JPEG" alt="Mila Mendez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">M</div>
+        <div class="tech-info"><div class="tech-role">Tech · Set</div><div class="tech-name">Mila Mendez</div></div>
+      </div>
+
+      <div class="tech-card">
+        <img class="tech-photo" src="photos/BRIGITTE RAMOS-6TH GRADE-TECH-SOUND AND MAKE UP.JPEG" alt="Brigitte Ramos" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="tech-photo-placeholder" style="display:none">B</div>
+        <div class="tech-info"><div class="tech-role">Tech · Sound &amp; Makeup</div><div class="tech-name">Brigitte Ramos</div></div>
       </div>
 
       <div class="section-label">Leadership &amp; Direction</div>
-      <div class="crew-block">
-        <div class="crew-role">Director</div>
-        <div class="crew-name">Ms. Faride Jamid</div>
+      <div style="background:white;border-radius:8px;padding:14px 16px;font-size:0.88rem;line-height:2;color:#222;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+        <strong style="color:var(--darkred);">Director:</strong> Ms. Faride Jamid<br>
+        <strong style="color:var(--darkred);">Leadership Staff:</strong> Wine · Jojo · Rachel · Ricky · Rusty
       </div>
-      <div class="crew-block">
-        <div class="crew-role">Leadership Staff</div>
-        <div class="crew-name">Wine · Jojo · Rachel · Ricky · Rusty</div>
-      </div>
+
     </div>
   </div>
 
-  <!-- ══ PAGE 5: MUSICAL NUMBERS ══ -->
-  <div class="page" id="page-5">
+  <!-- PAGE 8: SONGS -->
+  <div class="page" id="page-8">
     <div class="page-header">
       <div class="subtitle">Musical Numbers</div>
       <h2>Songs of the Show</h2>
@@ -679,108 +863,29 @@
     <div class="page-body">
       <div class="act-divider"><span>Act One</span></div>
       <ul class="song-list">
-        <li>
-          <span class="song-num">1</span>
-          <div>
-            <span class="song-title">Wildcat Cheer</span>
-            <span class="song-cast">Company</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">2</span>
-          <div>
-            <span class="song-title"><em>Start of Something New</em></span>
-            <span class="song-cast">Troy, Gabriella, Company</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">3</span>
-          <div>
-            <span class="song-title">Get'Cha Head in the Game</span>
-            <span class="song-cast">Troy, Jocks</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">4</span>
-          <div>
-            <span class="song-title">Auditions (Bop to the Top / What I've Been Looking For)</span>
-            <span class="song-cast">Thespians, Rebels, Ms. Darbus</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">5</span>
-          <div>
-            <span class="song-title"><em>What I've Been Looking For</em></span>
-            <span class="song-cast">Sharpay, Ryan</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">6</span>
-          <div>
-            <span class="song-title">What I've Been Looking For (Reprise)</span>
-            <span class="song-cast">Troy, Gabriella</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">7</span>
-          <div>
-            <span class="song-title">Stick to the Status Quo</span>
-            <span class="song-cast">Company</span>
-          </div>
-        </li>
+        <li><span class="song-num">1</span><div><span class="song-title">Wildcat Cheer</span><span class="song-cast">Company</span></div></li>
+        <li><span class="song-num">2</span><div><span class="song-title"><em>Start of Something New</em></span><span class="song-cast">Troy, Gabriella, Company</span></div></li>
+        <li><span class="song-num">3</span><div><span class="song-title">Get'Cha Head in the Game</span><span class="song-cast">Troy, Jocks</span></div></li>
+        <li><span class="song-num">4</span><div><span class="song-title">Auditions (Bop to the Top / What I've Been Looking For)</span><span class="song-cast">Thespians, Rebels, Ms. Darbus</span></div></li>
+        <li><span class="song-num">5</span><div><span class="song-title"><em>What I've Been Looking For</em></span><span class="song-cast">Sharpay, Ryan</span></div></li>
+        <li><span class="song-num">6</span><div><span class="song-title">What I've Been Looking For (Reprise)</span><span class="song-cast">Troy, Gabriella</span></div></li>
+        <li><span class="song-num">7</span><div><span class="song-title">Stick to the Status Quo</span><span class="song-cast">Company</span></div></li>
       </ul>
-
       <div class="act-divider"><span>Act Two</span></div>
       <ul class="song-list">
-        <li>
-          <span class="song-num">8</span>
-          <div>
-            <span class="song-title">Counting on You</span>
-            <span class="song-cast">Jocks, Brainiacs</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">9</span>
-          <div>
-            <span class="song-title">We're All in This Together</span>
-            <span class="song-cast">Chad, Taylor, Kelsi, Jocks, Brainiacs</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">10</span>
-          <div>
-            <span class="song-title">Bop to the Top</span>
-            <span class="song-cast">Sharpay, Ryan, Brainiacs, Jocks</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">11</span>
-          <div>
-            <span class="song-title"><em>Breaking Free</em></span>
-            <span class="song-cast">Troy, Gabriella, Company</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">12</span>
-          <div>
-            <span class="song-title">We're All in This Together (Reprise)</span>
-            <span class="song-cast">Company</span>
-          </div>
-        </li>
-        <li>
-          <span class="song-num">13</span>
-          <div>
-            <span class="song-title">High School Musical Megamix</span>
-            <span class="song-cast">Company</span>
-          </div>
-        </li>
+        <li><span class="song-num">8</span><div><span class="song-title">Counting on You</span><span class="song-cast">Jocks, Brainiacs</span></div></li>
+        <li><span class="song-num">9</span><div><span class="song-title">We're All in This Together</span><span class="song-cast">Chad, Taylor, Kelsi, Jocks, Brainiacs</span></div></li>
+        <li><span class="song-num">10</span><div><span class="song-title">Bop to the Top</span><span class="song-cast">Sharpay, Ryan, Brainiacs, Jocks</span></div></li>
+        <li><span class="song-num">11</span><div><span class="song-title"><em>Breaking Free</em></span><span class="song-cast">Troy, Gabriella, Company</span></div></li>
+        <li><span class="song-num">12</span><div><span class="song-title">We're All in This Together (Reprise)</span><span class="song-cast">Company</span></div></li>
+        <li><span class="song-num">13</span><div><span class="song-title">High School Musical Megamix</span><span class="song-cast">Company</span></div></li>
       </ul>
     </div>
   </div>
 
-  <!-- ══ PAGE 6: CLOSING ══ -->
+  <!-- PAGE 9: CLOSING -->
   <div class="page" id="page-closing">
-    <img class="closing-logo" src="logo.jpg" alt="Ammons Logo" onerror="this.style.display:'none'">
+    <img class="closing-logo" src="logo.jpg" alt="Ammons Logo" onerror="this.style.display='none'">
     <div class="closing-title">High School Musical Jr.</div>
     <div class="closing-sub">Herbert A. Ammons Middle · Drama</div>
     <div class="closing-divider"></div>
@@ -792,7 +897,7 @@
     <div class="closing-stars">★ ★ ★</div>
   </div>
 
-  <!-- ══ NAV BAR ══ -->
+  <!-- NAV BAR -->
   <div class="nav-bar">
     <button class="nav-btn" id="btn-prev" onclick="navigate(-1)" disabled>◀ Back</button>
     <div class="page-indicator">
@@ -802,11 +907,11 @@
     <button class="nav-btn" id="btn-next" onclick="navigate(1)">Next ▶</button>
   </div>
 
-</div><!-- /booklet -->
+</div>
 
 <script>
-  const pages = ['page-0','page-1','page-2','page-3','page-4','page-5','page-closing'];
-  const labels = ['Cover','Welcome','Principal Cast','Ensemble','Production Team','Musical Numbers','Finale'];
+  const pages  = ['page-0','page-1','page-2','page-3','page-4','page-5','page-6','page-7','page-8','page-closing'];
+  const labels = ['Cover','Welcome','Principal Cast','Cheerleaders & Dancers','Ensemble · 8th Grade','Ensemble · 7th Grade','Ensemble · 6th Grade','Production Team','Songs','Finale'];
   let current = 0;
 
   function navigate(dir) {
