@@ -93,14 +93,14 @@
     border-left: 4px solid var(--gold);
   }
   .cast-photo {
-    width: 64px; height: 64px; border-radius: 50%;
+    width: 64px; height: 64px; border-radius: 6px;
     object-fit: cover; object-position: top;
     flex-shrink: 0;
     border: 2px solid var(--gold);
     background: #eee;
   }
   .cast-photo-placeholder {
-    width: 64px; height: 64px; border-radius: 50%;
+    width: 64px; height: 64px; border-radius: 6px;
     flex-shrink: 0; border: 2px solid var(--gold);
     background: linear-gradient(135deg, var(--red), var(--darkred));
     display: flex; align-items: center; justify-content: center;
@@ -143,12 +143,12 @@
     border-left: 4px solid var(--navy);
   }
   .tech-photo {
-    width: 52px; height: 52px; border-radius: 50%;
+    width: 52px; height: 52px; border-radius: 6px;
     object-fit: cover; object-position: top; flex-shrink: 0;
     border: 2px solid var(--navy); background: #eee;
   }
   .tech-photo-placeholder {
-    width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+    width: 52px; height: 52px; border-radius: 6px; flex-shrink: 0;
     border: 2px solid var(--navy);
     background: linear-gradient(135deg, var(--navy), #1a3a5c);
     display: flex; align-items: center; justify-content: center;
@@ -328,6 +328,12 @@
         </div>
 
         <div class="cast-card">
+          <img class="cast-photo" src="photos/KARLA PIERRE-8TH GRADE-JACKIE SCOTT-PRIMARY ACTOR.JPEG" alt="Karla Pierre" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="cast-photo-placeholder" style="display:none">K</div>
+          <div class="cast-info"><div class="cast-role">Jackie Scott</div><div class="cast-name">Karla Pierre</div></div>
+        </div>
+
+        <div class="cast-card">
           <img class="cast-photo" src="photos/MAYA MENDEZ-7TH GRADE-THESPIAN-ENSEMBLE.JPEG" alt="Maya Mendez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="cast-photo-placeholder" style="display:none">M</div>
           <div class="cast-info"><div class="cast-role">Ms. Tenny</div><div class="cast-name">Maya Mendez</div></div>
@@ -344,13 +350,7 @@
           <div class="cast-photo-placeholder" style="display:none">J</div>
           <div class="cast-info"><div class="cast-role">Coach Bolton</div><div class="cast-name">Jacke Rodriguez</div></div>
         </div>
-        
-        <div class="cast-card">
-          <img class="cast-photo" src="photos/KAYLIE HEIMER-8TH GRADE-REBEL-ENSEMBLE.JPEG" alt="Kailey Heimer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="cast-photo-placeholder" style="display:none">K</div>
-          <div class="cast-info"><div class="cast-role">Status Quo Soloist</div><div class="cast-name">Kailey Heimer</div></div>
-        </div>
-        
+
         <div class="cast-card">
           <img class="cast-photo" src="photos/JASMINE RAMKHELAWAN-8TH GRADE-BRAINIAC-ENSEMBLE.JPEG" alt="Jasmine Ramkhelawan" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="cast-photo-placeholder" style="display:none">J</div>
@@ -432,14 +432,7 @@
           <div class="yearbook-photo-placeholder" style="display:none">K</div>
           <div class="yearbook-name">Kara Williams</div><div class="yearbook-role">Cheerleader</div>
         </div>
-        
-        <!-- Karla -->
-        <div class="yearbook-card">
-          <img class="cast-photo" src="photos/KARLA PIERRE-8TH GRADE-JACKIE SCOTT-PRIMARY ACTOR.JPEG" alt="Karla Pierre" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="yearbook-photo-placeholder" style="display:none">K</div>
-          <div class="yearbook-name">Karla Pierre</div><div class="yearbook-role">Cheerleader</div>
-        </div>
-        
+
         <!-- Keira -->
         <div class="yearbook-card">
           <img class="yearbook-photo" src="photos/KEIRA LOPEZ-6TH GRADE-CHEERLEADER-ENSEMBLE.JPEG" alt="Keira Lopez" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
